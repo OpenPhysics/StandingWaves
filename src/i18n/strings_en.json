@@ -1,21 +1,170 @@
 {
-  "title": "SceneryStack Template",
+  "title": "Standing Waves",
   "screens": {
-    "sim": "Sim"
+    "reflection": "Reflection",
+    "phaseRelationships": "Phase",
+    "standingWaves": "Standing Waves",
+    "instruments": "Instruments"
+  },
+  "quantities": {
+    "displacement": "Displacement",
+    "velocity": "Velocity",
+    "pressure": "Pressure"
+  },
+  "axes": {
+    "positionAlongPipe": "Position along pipe (m)",
+    "harmonicNumber": "Harmonic",
+    "relativeAmplitude": "Relative amplitude",
+    "frequency": "Frequency (Hz)"
+  },
+  "ends": {
+    "closed": "Closed",
+    "open": "Open"
+  },
+  "terminations": {
+    "closedClosed": "Closed–Closed",
+    "openOpen": "Open–Open",
+    "closedOpen": "Closed–Open"
+  },
+  "controls": {
+    "pipeLength": "Pipe length",
+    "reset": "Reset"
+  },
+  "reflection": {
+    "launchPulse": "Launch pulse",
+    "compareBothEnds": "Compare both ends",
+    "farEnd": "Far end",
+    "closedFarEnd": "Closed far end",
+    "openFarEnd": "Open far end",
+    "closedRule": "Displacement flips, pressure does not",
+    "openRule": "Pressure flips, displacement does not",
+    "hint": "The near end is always rigid. Watch the far end."
+  },
+  "phase": {
+    "direction": "Direction of travel",
+    "forward": "Forward",
+    "backward": "Backward",
+    "wavelength": "Wavelength",
+    "inPhase": "Velocity and pressure are IN phase",
+    "outOfPhase": "Velocity and pressure are 180° OUT of phase",
+    "showEquations": "Show equations",
+    "equationPressureForward": "p(x,t) = A cos(ωt − kx)",
+    "equationPressureBackward": "p(x,t) = A cos(ωt + kx)",
+    "equationVelocityForward": "u(x,t) = + p / ρc",
+    "equationVelocityBackward": "u(x,t) = − p / ρc",
+    "impedanceLabel": "characteristic impedance ρc",
+    "impedanceValue": "{{value}} Pa·s/m",
+    "referencePoint": "Reference point",
+    "atReferencePoint": "At the reference point"
+  },
+  "standingWaves": {
+    "termination": "Termination",
+    "harmonic": "Harmonic",
+    "driveFrequency": "Drive frequency",
+    "driverOn": "Driver on",
+    "atResonance": "At resonance",
+    "buildingUp": "Building up…",
+    "offResonance": "Off resonance",
+    "showNodes": "Mark nodes and antinodes",
+    "overtones": "Overtones",
+    "missingHarmonic": "This pipe has no harmonic {{harmonic}}",
+    "nodeLegend": "Displacement node = pressure antinode",
+    "snapToHarmonic": "Snap to harmonic {{harmonic}}",
+    "displacementNodeLabel": "ξ = 0, p max",
+    "pressureNodeLabel": "p = 0, ξ max"
+  },
+  "instruments": {
+    "instrument": "Instrument",
+    "openOrganPipe": "Open organ pipe",
+    "stoppedOrganPipe": "Stopped organ pipe",
+    "flute": "Flute",
+    "clarinet": "Clarinet",
+    "spectrumTitle": "Harmonics this pipe can sound",
+    "allHarmonics": "All harmonics",
+    "oddHarmonicsOnly": "Odd harmonics only",
+    "fundamentalLabel": "f₁ = {{value}} Hz",
+    "lengthLabel": "L = {{value}} m",
+    "sameLengthNote": "Same length, an octave apart"
+  },
+  "units": {
+    "hertz": "{{value}} Hz",
+    "metres": "{{value}} m"
   },
   "a11y": {
-    "screenSummary": {
-      "playArea": "The play area shows the main simulation content.",
-      "controlArea": "The control area has a Reset All button that returns the simulation to its starting state.",
-      "interactionHint": "Explore the simulation by interacting with its controls."
+    "reflection": {
+      "screenSummary": {
+        "playArea": "A pipe lies across the play area with a chain of air particles inside it. Below the pipe, two graphs trace the particle displacement and the acoustic pressure along its length. The near end of the pipe is rigid; the far end is either closed or open.",
+        "controlArea": "The control area has a button that launches a pulse, a control for the far end of the pipe, a checkbox that shows both far ends at once for comparison, playback controls, and a Reset All button.",
+        "interactionHint": "Launch a pulse and watch what the far end does to it."
+      },
+      "currentDetails": {
+        "atRest": "The pipe is at rest. No pulse has been launched.",
+        "travellingToward": "A pulse is travelling toward the far end of the pipe.",
+        "reflecting": "The pulse is reflecting off the far end.",
+        "travellingBack": "The reflected pulse is travelling back toward the near end.",
+        "closedResult": "Reflected from the closed end, the displacement pulse has flipped upside down while the pressure pulse has not.",
+        "openResult": "Reflected from the open end, the displacement pulse is still upright while the pressure pulse has flipped."
+      },
+      "controls": {
+        "launchPulse": "Launch pulse",
+        "farEnd": "Far end of the pipe",
+        "compare": "Compare both far ends"
+      }
     },
-    "currentDetails": "The simulation is in its initial state.",
-    "controls": {
-      "exampleControl": "Example control"
+    "phaseRelationships": {
+      "screenSummary": {
+        "playArea": "A pipe of air particles oscillating back and forth along its axis, with a movable reference point carrying a displacement arrow and a velocity arrow. Below the pipe, graphs trace displacement, velocity and pressure along its length.",
+        "controlArea": "The control area has a direction control for the wave, a wavelength control, a checkbox showing the equations, playback controls, and a Reset All button.",
+        "interactionHint": "Reverse the direction of travel and watch what happens to the velocity and pressure curves."
+      },
+      "currentDetails": {
+        "forward": "The wave travels toward the far end. Velocity and pressure are in phase: the air moves fastest toward the far end exactly where it is most compressed.",
+        "backward": "The wave travels toward the near end. Velocity and pressure are 180 degrees out of phase: the air moves fastest toward the far end exactly where it is most rarefied."
+      },
+      "controls": {
+        "direction": "Direction of travel",
+        "wavelength": "Wavelength",
+        "showEquations": "Show equations",
+        "referencePoint": "Reference point along the pipe"
+      }
+    },
+    "standingWaves": {
+      "screenSummary": {
+        "playArea": "A pipe whose two ends can each be closed or open, driven at one end. Inside, a standing wave in displacement and pressure, with markers on the nodes and antinodes. Beside it, a ladder of the harmonics this pipe can sound.",
+        "controlArea": "The control area has a termination control for the pipe ends, a drive frequency slider, a ladder of harmonics to snap to, a pipe length control, a checkbox for the node markers, playback controls, and a Reset All button.",
+        "interactionHint": "Choose a termination, then sweep the frequency to find a resonance — or snap straight to a harmonic."
+      },
+      "currentDetails": {
+        "atResonance": "The pipe is at resonance on harmonic {{harmonic}}, at {{frequency}} hertz. A standing wave fills the pipe.",
+        "offResonance": "The pipe is off resonance at {{frequency}} hertz, between harmonics. Very little standing wave forms.",
+        "silent": "The driver is off and the pipe is ringing down."
+      },
+      "controls": {
+        "termination": "Pipe termination",
+        "driveFrequency": "Drive frequency",
+        "harmonicLadder": "Harmonic to snap to",
+        "pipeLength": "Pipe length",
+        "driverOn": "Driver on",
+        "showNodes": "Mark nodes and antinodes"
+      }
+    },
+    "instruments": {
+      "screenSummary": {
+        "playArea": "A pipe set up as one of four instruments, with its standing wave inside, beside a bar chart of the harmonics that pipe can sound.",
+        "controlArea": "The control area has a control that selects the instrument, playback controls, and a Reset All button.",
+        "interactionHint": "Compare the flute with the clarinet: same length, but not the same harmonics."
+      },
+      "currentDetails": {
+        "allHarmonics": "{{instrument}} is open at both ends, so it sounds every harmonic of {{frequency}} hertz.",
+        "oddHarmonics": "{{instrument}} is stopped at one end, so it sounds only the odd harmonics of {{frequency}} hertz — an octave below an open pipe of the same length."
+      },
+      "controls": {
+        "instrument": "Instrument"
+      }
     }
   },
   "preferences": {
     "title": "Simulation",
-    "exampleToggle": "Example Toggle"
+    "showVelocityTrace": "Show the velocity curve"
   }
 }

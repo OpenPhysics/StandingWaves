@@ -1,21 +1,170 @@
 {
-  "title": "Plantilla de Simulación",
+  "title": "Ondas estacionarias",
   "screens": {
-    "sim": "Sim"
+    "reflection": "Reflexión",
+    "phaseRelationships": "Fase",
+    "standingWaves": "Ondas estacionarias",
+    "instruments": "Instrumentos"
+  },
+  "quantities": {
+    "displacement": "Desplazamiento",
+    "velocity": "Velocidad",
+    "pressure": "Presión"
+  },
+  "axes": {
+    "positionAlongPipe": "Posición a lo largo del tubo (m)",
+    "harmonicNumber": "Armónico",
+    "relativeAmplitude": "Amplitud relativa",
+    "frequency": "Frecuencia (Hz)"
+  },
+  "ends": {
+    "closed": "Cerrado",
+    "open": "Abierto"
+  },
+  "terminations": {
+    "closedClosed": "Cerrado–Cerrado",
+    "openOpen": "Abierto–Abierto",
+    "closedOpen": "Cerrado–Abierto"
+  },
+  "controls": {
+    "pipeLength": "Longitud del tubo",
+    "reset": "Reiniciar"
+  },
+  "reflection": {
+    "launchPulse": "Lanzar pulso",
+    "compareBothEnds": "Comparar ambos extremos",
+    "farEnd": "Extremo lejano",
+    "closedFarEnd": "Extremo lejano cerrado",
+    "openFarEnd": "Extremo lejano abierto",
+    "closedRule": "El desplazamiento se invierte, la presión no",
+    "openRule": "La presión se invierte, el desplazamiento no",
+    "hint": "El extremo cercano es siempre rígido. Observe el extremo lejano."
+  },
+  "phase": {
+    "direction": "Sentido de propagación",
+    "forward": "Hacia adelante",
+    "backward": "Hacia atrás",
+    "wavelength": "Longitud de onda",
+    "inPhase": "Velocidad y presión EN fase",
+    "outOfPhase": "Velocidad y presión EN OPOSICIÓN de fase (180°)",
+    "showEquations": "Mostrar ecuaciones",
+    "equationPressureForward": "p(x,t) = A cos(ωt − kx)",
+    "equationPressureBackward": "p(x,t) = A cos(ωt + kx)",
+    "equationVelocityForward": "u(x,t) = + p / ρc",
+    "equationVelocityBackward": "u(x,t) = − p / ρc",
+    "impedanceLabel": "impedancia característica ρc",
+    "impedanceValue": "{{value}} Pa·s/m",
+    "referencePoint": "Punto de referencia",
+    "atReferencePoint": "En el punto de referencia"
+  },
+  "standingWaves": {
+    "termination": "Terminación",
+    "harmonic": "Armónico",
+    "driveFrequency": "Frecuencia de excitación",
+    "driverOn": "Excitación activa",
+    "atResonance": "En resonancia",
+    "buildingUp": "Estableciéndose…",
+    "offResonance": "Fuera de resonancia",
+    "showNodes": "Marcar nodos y antinodos",
+    "overtones": "Armónicos superiores",
+    "missingHarmonic": "Este tubo no tiene el armónico {{harmonic}}",
+    "nodeLegend": "Nodo de desplazamiento = antinodo de presión",
+    "snapToHarmonic": "Ajustar al armónico {{harmonic}}",
+    "displacementNodeLabel": "ξ = 0, p max",
+    "pressureNodeLabel": "p = 0, ξ max"
+  },
+  "instruments": {
+    "instrument": "Instrumento",
+    "openOrganPipe": "Tubo de órgano abierto",
+    "stoppedOrganPipe": "Tubo de órgano tapado",
+    "flute": "Flauta",
+    "clarinet": "Clarinete",
+    "spectrumTitle": "Armónicos que este tubo puede sonar",
+    "allHarmonics": "Todos los armónicos",
+    "oddHarmonicsOnly": "Solo armónicos impares",
+    "fundamentalLabel": "f₁ = {{value}} Hz",
+    "lengthLabel": "L = {{value}} m",
+    "sameLengthNote": "Misma longitud, una octava de diferencia"
+  },
+  "units": {
+    "hertz": "{{value}} Hz",
+    "metres": "{{value}} m"
   },
   "a11y": {
-    "screenSummary": {
-      "playArea": "El área de juego muestra el contenido principal de la simulación.",
-      "controlArea": "El área de control tiene un botón Restablecer todo que devuelve la simulación a su estado inicial.",
-      "interactionHint": "Explora la simulación interactuando con sus controles."
+    "reflection": {
+      "screenSummary": {
+        "playArea": "Un tubo cruza el área de juego, con una cadena de partículas de aire en su interior. Debajo del tubo, dos gráficas trazan el desplazamiento de las partículas y la presión acústica a lo largo de toda su longitud. El extremo cercano del tubo es rígido; el extremo lejano está cerrado o abierto.",
+        "controlArea": "El área de control tiene un botón que lanza un pulso, un control para el extremo lejano del tubo, una casilla que muestra ambos extremos a la vez para comparar, los controles de reproducción y un botón Reiniciar todo.",
+        "interactionHint": "Lance un pulso y observe qué le hace el extremo lejano."
+      },
+      "currentDetails": {
+        "atRest": "El tubo está en reposo. No se ha lanzado ningún pulso.",
+        "travellingToward": "Un pulso viaja hacia el extremo lejano del tubo.",
+        "reflecting": "El pulso se refleja en el extremo lejano.",
+        "travellingBack": "El pulso reflejado viaja de vuelta hacia el extremo cercano.",
+        "closedResult": "Reflejado en el extremo cerrado, el pulso de desplazamiento se ha invertido mientras que el de presión no.",
+        "openResult": "Reflejado en el extremo abierto, el pulso de desplazamiento sigue en el mismo sentido mientras que el de presión se ha invertido."
+      },
+      "controls": {
+        "launchPulse": "Lanzar pulso",
+        "farEnd": "Extremo lejano del tubo",
+        "compare": "Comparar ambos extremos lejanos"
+      }
     },
-    "currentDetails": "La simulación está en su estado inicial.",
-    "controls": {
-      "exampleControl": "Control de ejemplo"
+    "phaseRelationships": {
+      "screenSummary": {
+        "playArea": "Un tubo de partículas de aire que oscilan de un lado a otro según su eje, con un punto de referencia móvil que porta una flecha de desplazamiento y una flecha de velocidad. Debajo del tubo, las gráficas trazan el desplazamiento, la velocidad y la presión a lo largo de toda su longitud.",
+        "controlArea": "El área de control tiene un control de sentido de propagación, un control de longitud de onda, una casilla que muestra las ecuaciones, los controles de reproducción y un botón Reiniciar todo.",
+        "interactionHint": "Invierta el sentido de propagación y observe qué les ocurre a las curvas de velocidad y presión."
+      },
+      "currentDetails": {
+        "forward": "La onda viaja hacia el extremo lejano. Velocidad y presión están en fase: el aire se mueve más rápido hacia el extremo lejano exactamente donde está más comprimido.",
+        "backward": "La onda viaja hacia el extremo cercano. Velocidad y presión están en oposición de fase: el aire se mueve más rápido hacia el extremo lejano exactamente donde está más dilatado."
+      },
+      "controls": {
+        "direction": "Sentido de propagación",
+        "wavelength": "Longitud de onda",
+        "showEquations": "Mostrar ecuaciones",
+        "referencePoint": "Punto de referencia a lo largo del tubo"
+      }
+    },
+    "standingWaves": {
+      "screenSummary": {
+        "playArea": "Un tubo cuyos dos extremos pueden estar cerrados o abiertos, excitado en un extremo. En su interior, una onda estacionaria en desplazamiento y en presión, con marcas en los nodos y antinodos. Al lado, la escalera de armónicos que este tubo puede sonar.",
+        "controlArea": "El área de control tiene un control de terminación de los extremos, un deslizador de frecuencia de excitación, una escalera de armónicos a los que ajustarse, un control de longitud del tubo, una casilla para las marcas de nodos, los controles de reproducción y un botón Reiniciar todo.",
+        "interactionHint": "Elija una terminación y luego barra la frecuencia para encontrar una resonancia — o ajústese directamente a un armónico."
+      },
+      "currentDetails": {
+        "atResonance": "El tubo está en resonancia en el armónico {{harmonic}}, a {{frequency}} hercios. Una onda estacionaria llena el tubo.",
+        "offResonance": "El tubo está fuera de resonancia a {{frequency}} hercios, entre armónicos. Se forma muy poca onda estacionaria.",
+        "silent": "La excitación está apagada y el tubo se está amortiguando."
+      },
+      "controls": {
+        "termination": "Terminación del tubo",
+        "driveFrequency": "Frecuencia de excitación",
+        "harmonicLadder": "Armónico objetivo",
+        "pipeLength": "Longitud del tubo",
+        "driverOn": "Excitación activa",
+        "showNodes": "Marcar nodos y antinodos"
+      }
+    },
+    "instruments": {
+      "screenSummary": {
+        "playArea": "Un tubo configurado como uno de cuatro instrumentos, con su onda estacionaria en el interior, junto a un diagrama de barras de los armónicos que ese tubo puede sonar.",
+        "controlArea": "El área de control tiene un control que selecciona el instrumento, los controles de reproducción y un botón Reiniciar todo.",
+        "interactionHint": "Compare la flauta con el clarinete: misma longitud, pero no los mismos armónicos."
+      },
+      "currentDetails": {
+        "allHarmonics": "{{instrument}} está abierto por ambos extremos, así que suena todos los armónicos de {{frequency}} hercios.",
+        "oddHarmonics": "{{instrument}} está tapado por un extremo, así que solo suena los armónicos impares de {{frequency}} hercios — una octava por debajo de un tubo abierto de la misma longitud."
+      },
+      "controls": {
+        "instrument": "Instrumento"
+      }
     }
   },
   "preferences": {
     "title": "Simulación",
-    "exampleToggle": "Ejemplo de alternancia"
+    "showVelocityTrace": "Mostrar la curva de velocidad"
   }
 }

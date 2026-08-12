@@ -68,6 +68,16 @@ export class TimeModel {
     }
   }
 
+  /**
+   * Advance the clock by dt seconds regardless of whether it is running.
+   *
+   * This is what a step-forward button needs: it is only ever pressed while
+   * paused, and {@link step} ignores dt in exactly that state.
+   */
+  public stepForward(dt: number): void {
+    this.timeProperty.value += dt;
+  }
+
   /** Resets clock and playback state to their initial values. */
   public reset(): void {
     this.isPlayingProperty.reset();

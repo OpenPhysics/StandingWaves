@@ -22,23 +22,40 @@ import "./brand.js";
 import { onReadyToLaunch, PreferencesModel, Sim } from "scenerystack/sim";
 import { Tandem } from "scenerystack/tandem";
 import { StringManager } from "./i18n/StringManager.js";
-import { SimPreferencesModel } from "./preferences/SimPreferencesModel.js";
-import { SimPreferencesNode } from "./preferences/SimPreferencesNode.js";
-import SimColors from "./SimColors.js";
-import { SimScreen } from "./sim-screen/SimScreen.js";
+import { InstrumentsScreen } from "./instruments/InstrumentsScreen.js";
+import { PhaseScreen } from "./phase-relationships/PhaseScreen.js";
+import { StandingWavesPreferencesModel } from "./preferences/StandingWavesPreferencesModel.js";
+import { StandingWavesPreferencesNode } from "./preferences/StandingWavesPreferencesNode.js";
+import { ReflectionScreen } from "./reflection/ReflectionScreen.js";
+import StandingWavesColors from "./StandingWavesColors.js";
+import { StandingWavesScreen } from "./standing-waves/StandingWavesScreen.js";
 
 onReadyToLaunch(() => {
   const stringManager = StringManager.getInstance();
 
-  // Simulation-specific preferences; initial values come from simQueryParameters.
-  const simPreferences = new SimPreferencesModel(Tandem.ROOT.createTandem("preferences"));
+  // Simulation-specific preferences; initial values come from standingWavesQueryParameters.
+  const simPreferences = new StandingWavesPreferencesModel(Tandem.ROOT.createTandem("preferences"));
 
   const screens = [
-    new SimScreen({
-      // The screen name Property updates automatically when the locale changes
-      name: stringManager.getScreenNames().simStringProperty,
-      tandem: Tandem.ROOT.createTandem("simScreen"),
-      backgroundColorProperty: SimColors.backgroundColorProperty,
+    new ReflectionScreen(simPreferences, {
+      name: stringManager.getScreenNames().reflectionStringProperty,
+      tandem: Tandem.ROOT.createTandem("reflectionScreen"),
+      backgroundColorProperty: StandingWavesColors.backgroundColorProperty,
+    }),
+    new PhaseScreen({
+      name: stringManager.getScreenNames().phaseRelationshipsStringProperty,
+      tandem: Tandem.ROOT.createTandem("phaseRelationshipsScreen"),
+      backgroundColorProperty: StandingWavesColors.backgroundColorProperty,
+    }),
+    new StandingWavesScreen(simPreferences, {
+      name: stringManager.getScreenNames().standingWavesStringProperty,
+      tandem: Tandem.ROOT.createTandem("standingWavesScreen"),
+      backgroundColorProperty: StandingWavesColors.backgroundColorProperty,
+    }),
+    new InstrumentsScreen({
+      name: stringManager.getScreenNames().instrumentsStringProperty,
+      tandem: Tandem.ROOT.createTandem("instrumentsScreen"),
+      backgroundColorProperty: StandingWavesColors.backgroundColorProperty,
     }),
   ];
 
@@ -53,7 +70,7 @@ onReadyToLaunch(() => {
       simulationOptions: {
         customPreferences: [
           {
-            createContent: (tandem: Tandem) => new SimPreferencesNode(simPreferences, tandem),
+            createContent: (tandem: Tandem) => new StandingWavesPreferencesNode(simPreferences, tandem),
           },
         ],
       },

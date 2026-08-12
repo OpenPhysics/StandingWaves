@@ -1,26 +1,51 @@
-# SceneryStack Template
+# Standing Waves
 
-[![CI](https://github.com/OpenPhysics/SceneryStackTemplate/actions/workflows/ci.yml/badge.svg)](https://github.com/OpenPhysics/SceneryStackTemplate/actions/workflows/ci.yml)
+[![CI](https://github.com/OpenPhysics/StandingWaves/actions/workflows/ci.yml/badge.svg)](https://github.com/OpenPhysics/StandingWaves/actions/workflows/ci.yml)
 
-A reusable SceneryStack simulation template for one or N screens, built with
-[SceneryStack](https://scenerystack.org/), Vite 8, TypeScript 7, and Biome 2.
+Longitudinal standing waves in a pipe, built with [SceneryStack](https://scenerystack.org/),
+Vite 8, TypeScript 7, and Biome 2.
+
+Sound in a pipe is usually drawn as a wiggly line, which hides the three things that actually
+matter: that displacement, velocity and pressure peak in different places; that an open end and a
+closed end reflect a pulse in opposite ways; and that a pressure antinode sits exactly where the
+displacement has a node. This simulation makes all three something you manipulate rather than read.
+
+**[Launch the simulation](https://openphysics.github.io/StandingWaves)**
 
 ## Features
 
-- SceneryStack scaffold with model/view separation (`rename` + `scaffold-screens` for one or N screens)
+- **Reflection** — a mass-spring chain terminated open or closed. Launch a pulse and watch it
+  reflect; a closed end flips the displacement and preserves the pressure, an open end does the
+  reverse. Both terminations can be shown side by side, stepped from one clock. The inversion is
+  *emergent* from the boundary condition, not scripted.
+- **Phase** — a travelling sinusoid with a draggable reference point carrying displacement and
+  velocity arrows. Reverse the direction and velocity and pressure go from in phase to 180° out of
+  phase, which is the whole content of `p = ±ρc·u`.
+- **Standing Waves** — pick Closed–Closed, Open–Open or Closed–Open, then sweep the drive frequency
+  to hunt for a resonance or snap straight to a harmonic. Node markers name both of each point's
+  identities, so the quarter-wave displacement/pressure offset is unmissable.
+- **Instruments** — open and stopped organ pipes, flute and clarinet, with the harmonic series as a
+  bar chart. The flute and clarinet share a bore length, so the octave and the missing even
+  harmonics are visibly the termination's doing.
+- Real SI units throughout, with slow motion applied to the clock rather than to the physics
+- Full keyboard and screen-reader support, with live state descriptions per screen
 - English, Spanish, and French localization via `StringManager`
 - Default and projector color profiles
 - Progressive Web App (installable, offline-capable)
-- Git hooks for Biome pre-commit checks
 - Shared GitHub Actions CI via `OpenPhysics/Baton`
+
+The physics is documented for educators in [`doc/model.md`](doc/model.md) and for developers in
+[`doc/implementation-notes.md`](doc/implementation-notes.md).
 
 ## Quick Start
 
 ```bash
 npm install
-npm run icons    # generate PNG icons from public/icons/icon.svg
 npm start        # dev server → http://localhost:5173
 ```
+
+Use `?screens=1` … `?screens=4` to open a single screen directly, and
+`?showVelocityTrace=true` to add the velocity curve on the screens where it is optional.
 
 ## Scripts
 
@@ -28,6 +53,7 @@ npm start        # dev server → http://localhost:5173
 |---|---|
 | `npm start` / `npm run dev` | Start Vite dev server |
 | `npm run build` | Type-check + production build → `dist/` |
+| `npm run build:single` | Single-file build |
 | `npm run preview` | Preview the production build locally |
 | `npm test` | Run Vitest unit tests (includes memory-leak suite) |
 | `npm run test:fuzz` | Optional Playwright fuzz smoke (`?fuzz`, default 15s) |
@@ -37,14 +63,11 @@ npm start        # dev server → http://localhost:5173
 | `npm run format` | Auto-format all files |
 | `npm run fix` | Lint + auto-fix |
 | `npm run icons` | Regenerate PNG icons from `public/icons/icon.svg` |
-| `npm run rename` | Sim-level fork/rename (`--id`, `--name`) |
-| `npm run scaffold-screens` | Emit N fleet-named screen packages from `sim-screen/` (`--shared-model` optional) |
 | `npm run release` | `check && lint && build`, then version patch + push tags |
 | `npm run clean` | Remove `dist/` |
 
-`npm run release` intentionally skips `npm test` — template tests are samples. Real sims should append `&& npm test` (before the version bump) so a release cannot ship a failing suite.
-
-New sims start at `version: "0.0.0"` in `package.json`. Bump only when cutting a release (for example `npm version patch` and a matching git tag). Keep `name` in kebab-case; it is separate from the SceneryStack sim identifier in `src/init.ts`.
+`npm run release` does not run `npm test`; append `&& npm test` before the version bump so a release
+cannot ship a failing suite.
 
 ## Tech Stack
 

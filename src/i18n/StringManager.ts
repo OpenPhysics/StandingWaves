@@ -46,29 +46,26 @@ const stringProperties = LocalizedString.getNestedStringProperties({
 });
 
 /**
- * Explicit `a11y` shape exposed by {@link StringManager.getA11yStrings}.
- * Keep this in sync with the `a11y` key in `strings_en.json` — a locale key
- * rename that is not mirrored here fails at the getter return (not silently).
+ * The `screenSummary` shape every screen's `a11y` subtree shares.
+ *
+ * Each screen adds its own `currentDetails` and `controls` keys on top, so the
+ * per-screen getters below return the inferred subtree rather than this type.
+ * This exists to state the part that must stay uniform.
  */
-export type SimA11yStrings = {
+export type StandingWavesScreenSummaryStrings = {
   readonly screenSummary: {
     readonly playAreaStringProperty: ReadOnlyProperty<string>;
     readonly controlAreaStringProperty: ReadOnlyProperty<string>;
     readonly interactionHintStringProperty: ReadOnlyProperty<string>;
   };
-  readonly currentDetailsStringProperty: ReadOnlyProperty<string>;
-  readonly controls: {
-    readonly exampleControlStringProperty: ReadOnlyProperty<string>;
-  };
 };
 
 /**
  * Explicit Preferences → Simulation labels from {@link StringManager.getPreferences}.
- * Same sync rule as {@link SimA11yStrings}.
  */
-export type SimPreferenceStrings = {
+export type StandingWavesPreferenceStrings = {
   readonly titleStringProperty: ReadOnlyProperty<string>;
-  readonly exampleToggleStringProperty: ReadOnlyProperty<string>;
+  readonly showVelocityTraceStringProperty: ReadOnlyProperty<string>;
 };
 
 /**
@@ -103,34 +100,93 @@ export class StringManager {
    * Each property updates automatically when the locale changes.
    */
   public getScreenNames(): {
-    readonly simStringProperty: ReadOnlyProperty<string>;
+    readonly reflectionStringProperty: ReadOnlyProperty<string>;
+    readonly phaseRelationshipsStringProperty: ReadOnlyProperty<string>;
+    readonly standingWavesStringProperty: ReadOnlyProperty<string>;
+    readonly instrumentsStringProperty: ReadOnlyProperty<string>;
   } {
     return {
-      simStringProperty: stringProperties.screens.simStringProperty,
+      reflectionStringProperty: stringProperties.screens.reflectionStringProperty,
+      phaseRelationshipsStringProperty: stringProperties.screens.phaseRelationshipsStringProperty,
+      standingWavesStringProperty: stringProperties.screens.standingWavesStringProperty,
+      instrumentsStringProperty: stringProperties.screens.instrumentsStringProperty,
     };
   }
 
-  /**
-   * Accessibility (Interactive Description) StringProperties.
-   *
-   * Returns the reactive `a11y` string tree used by the parallel DOM:
-   *   - `screenSummary.*` — play-area / control-area overview and an interaction
-   *     hint, read by `SimScreenSummaryContent`.
-   *   - `currentDetails` — a paragraph describing the simulation's current state.
-   *     In a real sim, derive a live version from model Properties (see
-   *     LunarLander's ScreenSummaryContent for the canonical pattern).
-   *
-   * Add `accessibleName` / `accessibleHelpText` strings for individual controls
-   * to the `a11y` group too, then read them through this same nested tree.
-   */
-  public getA11yStrings(): SimA11yStrings {
-    return stringProperties.a11y;
+  /** Names of the three acoustic quantities — the sim's whole vocabulary. */
+  public getQuantities() {
+    return stringProperties.quantities;
+  }
+
+  /** Axis titles shared by the trace strips and the spectrum. */
+  public getAxes() {
+    return stringProperties.axes;
+  }
+
+  /** "Closed" / "Open", for labelling a single pipe end. */
+  public getEnds() {
+    return stringProperties.ends;
+  }
+
+  /** Names of the three termination pairs. */
+  public getTerminations() {
+    return stringProperties.terminations;
+  }
+
+  /** Control labels shared by more than one screen. */
+  public getSharedControls() {
+    return stringProperties.controls;
+  }
+
+  /** Unit patterns, e.g. "{{value}} Hz". */
+  public getUnits() {
+    return stringProperties.units;
+  }
+
+  /** Visible text for the Reflection screen. */
+  public getReflectionStrings() {
+    return stringProperties.reflection;
+  }
+
+  /** Visible text for the Phase screen. */
+  public getPhaseStrings() {
+    return stringProperties.phase;
+  }
+
+  /** Visible text for the Standing Waves screen. */
+  public getStandingWavesStrings() {
+    return stringProperties.standingWaves;
+  }
+
+  /** Visible text for the Instruments screen. */
+  public getInstrumentsStrings() {
+    return stringProperties.instruments;
+  }
+
+  /** Accessibility strings for the Reflection screen. */
+  public getReflectionA11yStrings() {
+    return stringProperties.a11y.reflection;
+  }
+
+  /** Accessibility strings for the Phase screen. */
+  public getPhaseA11yStrings() {
+    return stringProperties.a11y.phaseRelationships;
+  }
+
+  /** Accessibility strings for the Standing Waves screen. */
+  public getStandingWavesA11yStrings() {
+    return stringProperties.a11y.standingWaves;
+  }
+
+  /** Accessibility strings for the Instruments screen. */
+  public getInstrumentsA11yStrings() {
+    return stringProperties.a11y.instruments;
   }
 
   /**
    * Simulation-specific preference labels shown in Preferences → Simulation.
    */
-  public getPreferences(): SimPreferenceStrings {
+  public getPreferences() {
     return stringProperties.preferences;
   }
 }

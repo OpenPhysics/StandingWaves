@@ -1,16 +1,15 @@
 {
-  "name": "scenerystack-template",
+  "name": "standing-waves",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "description": "GitHub template for OpenPhysics SceneryStack sims (rename + scaffold-screens for one or N screens).",
+  "description": "Longitudinal standing waves in a pipe: displacement, velocity and pressure phase relationships, open vs. closed end reflection, and the harmonic series of open and stopped pipes.",
   "license": "AGPL-3.0-or-later",
   "repository": {
     "type": "git",
-    "url": "https://github.com/OpenPhysics/SceneryStackTemplate.git"
+    "url": "https://github.com/OpenPhysics/StandingWaves.git"
   },
   "keywords": [
-    "template",
     "simulation",
     "SceneryStack",
     "interactive",
