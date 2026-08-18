@@ -143,7 +143,7 @@ export class StandingWavesControlPanel extends StandingWavesPanel {
       }),
       {
         checkboxColor: StandingWavesColors.textColorProperty,
-        checkboxColorBackground: StandingWavesColors.controlSurfaceColorProperty,
+        checkboxColorBackground: StandingWavesColors.panelBackgroundColorProperty,
         accessibleName: a11y.controls.driverOnStringProperty,
       },
     );
@@ -157,7 +157,7 @@ export class StandingWavesControlPanel extends StandingWavesPanel {
       }),
       {
         checkboxColor: StandingWavesColors.textColorProperty,
-        checkboxColorBackground: StandingWavesColors.controlSurfaceColorProperty,
+        checkboxColorBackground: StandingWavesColors.panelBackgroundColorProperty,
         accessibleName: a11y.controls.showNodesStringProperty,
       },
     );

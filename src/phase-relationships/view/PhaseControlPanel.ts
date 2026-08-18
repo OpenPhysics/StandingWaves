@@ -98,7 +98,7 @@ export class PhaseControlPanel extends StandingWavesPanel {
       }),
       {
         checkboxColor: StandingWavesColors.textColorProperty,
-        checkboxColorBackground: StandingWavesColors.controlSurfaceColorProperty,
+        checkboxColorBackground: StandingWavesColors.panelBackgroundColorProperty,
         accessibleName: a11y.controls.showEquationsStringProperty,
       },
     );
