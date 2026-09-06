@@ -1,7 +1,3 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-  <rect width="512" height="512" fill="#1a1a2e"/>
-  <circle cx="256" cy="256" r="180" fill="none" stroke="#4fc3f7" stroke-width="20"/>
-  <circle cx="256" cy="256" r="60" fill="#4fc3f7"/>
-  <ellipse cx="256" cy="256" rx="180" ry="60" fill="none" stroke="#4fc3f7" stroke-width="12" opacity="0.6" transform="rotate(30 256 256)"/>
-  <ellipse cx="256" cy="256" rx="180" ry="60" fill="none" stroke="#4fc3f7" stroke-width="12" opacity="0.6" transform="rotate(-30 256 256)"/>
+  <rect width="512" height="512" fill="#122038"/><rect x="55" y="151" width="402" height="210" rx="38" fill="#294968" stroke="#a9d6ef" stroke-width="10"/><path d="M70 256C103 174 136 174 169 256S235 338 268 256 334 174 367 256 433 338 442 256" fill="none" stroke="#ffca59" stroke-width="16" stroke-linecap="round"/><g fill="#f7fbff"><circle cx="70" cy="256" r="11"/><circle cx="169" cy="256" r="11"/><circle cx="268" cy="256" r="11"/><circle cx="367" cy="256" r="11"/><circle cx="442" cy="256" r="11"/></g><path d="M55 135V377" stroke="#e5edf8" stroke-width="16"/><path d="M457 135V377" stroke="#d1dfeb" stroke-width="16" stroke-dasharray="16 11"/>
 </svg>
