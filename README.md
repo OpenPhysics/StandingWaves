@@ -1,6 +1,6 @@
 # Standing Waves
 
-[![CI](https://github.com/OpenPhysics/StandingWaves/actions/workflows/ci.yml/badge.svg)](https://github.com/OpenPhysics/StandingWaves/actions/workflows/ci.yml)
+[![CI](../../actions/workflows/ci.yml/badge.svg)](../../actions/workflows/ci.yml)
 
 Longitudinal standing waves in a pipe, built with [SceneryStack](https://scenerystack.org/),
 Vite 8, TypeScript 7, and Biome 2.
@@ -10,7 +10,7 @@ matter: that displacement, velocity and pressure peak in different places; that 
 closed end reflect a pulse in opposite ways; and that a pressure antinode sits exactly where the
 displacement has a node. This simulation makes all three something you manipulate rather than read.
 
-**[Launch the simulation](https://openphysics.github.io/StandingWaves)**
+**[Launch the simulation](https://openlyceum.github.io/StandingWaves)**
 
 ## Features
 
@@ -32,7 +32,7 @@ displacement has a node. This simulation makes all three something you manipulat
 - English, Spanish, and French localization via `StringManager`
 - Default and projector color profiles
 - Progressive Web App (installable, offline-capable)
-- Shared GitHub Actions CI via `OpenPhysics/Baton`
+- Shared GitHub Actions CI via `OpenLyceum/Baton`
 
 The physics is documented for educators in [`doc/model.md`](doc/model.md) and for developers in
 [`doc/implementation-notes.md`](doc/implementation-notes.md).
@@ -81,9 +81,9 @@ cannot ship a failing suite.
 
 ## License
 
-GNU Affero General Public License v3.0 — see [OpenPhysics org license](https://github.com/OpenPhysics/.github/blob/main/LICENSE).
+GNU Affero General Public License v3.0 — see [OpenLyceum org license](https://github.com/OpenLyceum/.github/blob/main/LICENSE).
 
 ## Contributing
 
-See [OpenPhysics contributing guidelines](https://github.com/OpenPhysics/.github/blob/main/CONTRIBUTING.md).
+See [OpenLyceum contributing guidelines](https://github.com/OpenLyceum/.github/blob/main/CONTRIBUTING.md).
 Report bugs via GitHub Issues; use org issue templates.
